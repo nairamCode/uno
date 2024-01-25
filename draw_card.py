@@ -1,3 +1,4 @@
+from player import player
 import random
 
 class draw_card:
@@ -34,3 +35,23 @@ class draw_card:
         print("Your card's colors is: " + color + " and it's a " + action + " card.")
     else:
         print("Your card's colors is: " + color + " and it's number is " + str(value) + " card.")
+    
+    def draw_all_cards():
+        stapel = draw_card.deck
+        random.shuffle(stapel)
+        while stapel != []:
+            player.player1.append(stapel[0])
+            stapel.remove(stapel[0])
+            player.player2.append(stapel[0])
+            stapel.remove(stapel[0])
+            if player.player_amount == "3":
+                player.player3.append(stapel[0])
+                stapel.remove(stapel[0])
+            elif player.player_amount == "4":
+                player.player4.append(stapel[0])
+                stapel.remove(stapel[0])
+
+        print(player.player1)
+        print(player.player2)
+        print(player.player3)
+        print(player.player4)
